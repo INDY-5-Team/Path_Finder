@@ -2,6 +2,8 @@
 
 Welcome to the **Path Finder**, a Flutter mobile application that allows users to traverse a map through predefined nodes. This app focuses on **point-to-point traversal** with interactive QR code checkpoints for an engaging map exploration experience.
 
+Group memebers: [Harrison Varnadoe](https://github.com/hvarnadoe), [Zachary Wilson](https://github.com/ThatOneZach), [Lucas Haas](https://github.com/Lucas-Haas-02), and [Eddie Payan](https://github.com/Eddie-Pyn)
+
 ## Features
 
 - **Node-based Map Traversal**: Users can traverse the map using predefined nodes and paths. Each node represents a significant point or location on the map.
@@ -76,5 +78,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions, feel free to reach out:
 
-- Your Name – lucashaasprogramming02@gmail.com
-- GitHub: [Lucas-Haas-02](https://github.com/Lucas-Haas-02)
+- Email: lucashaasprogramming02@gmail.com
+- Email: harrison.varnadoe@outlook.com
