@@ -93,6 +93,7 @@ flutter:
       - assets/choa_app_icon_logo.png  
       - assets/choa_banner_logo.png
       - assets/choa_building.jpg
+      - assets/mock_app.png
 
 
   # The followin g adds png of CHOA Logo Icon to your application.

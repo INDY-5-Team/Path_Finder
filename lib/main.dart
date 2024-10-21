@@ -221,9 +221,20 @@ class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        'Map Page - Empty!',
-        style: TextStyle(fontFamily: 'Sans-serif', fontSize: textSize, color: Color(0xFF00A94F)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'assets/mock_app.png',
+            width: 300,
+            height: 400,
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Map Page',
+            style: TextStyle(fontFamily: 'Sans-serif', fontSize: textSize, color: Color(0xFF00A94F)),
+          ),
+        ],
       ),
     );
   }
