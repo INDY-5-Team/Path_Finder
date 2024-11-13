@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+//
 
 import 'Pages/about_us_page.dart';
-import 'Pages/home_page.dart';
+import 'Pages/destination_page.dart';
 import 'Pages/map_page.dart';
 import 'Pages/settings_page.dart';
 
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
       setState(() {
         _screens = [
           MapPage(textSize: widget.textSize),
-          HomePage(textSize: widget.textSize),
+          DestinationPage(textSize: widget.textSize),
           AboutUsPage(textSize: widget.textSize),
         ];
       });
@@ -46,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     _screens = [
       MapPage(textSize: widget.textSize),
-      HomePage(textSize: widget.textSize),
+      DestinationPage(textSize: widget.textSize),
       AboutUsPage(textSize: widget.textSize),
     ];
   }
@@ -62,19 +63,16 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: _selectedIndex == 1
-            ? Image.asset(
-                'assets/images/choa_banner_logo.png',
-                height: 40,
-              )
-            : Text(
-                _selectedIndex == 0 ? 'MAP' : 'ABOUT US',
-                style: const TextStyle(
-                    fontFamily: 'Sans-serif',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24),
-              ),
-        backgroundColor: const Color(0xFF00A94F),
+        title: Text(
+          _selectedIndex == 0 ? 'MAP' : _selectedIndex == 1 ? 'DESTINATIONS' : 'ABOUT US',
+          style: const TextStyle(
+            fontFamily: 'Sans-serif',
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        backgroundColor: Colors.blue,
+        toolbarHeight: 80, // Fill the whole top bar
       ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -84,40 +82,43 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Map',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 20.0),
-            label: 'Home',
+            icon: Icon(Icons.pin_drop),
+            label: 'Destinations',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.info, size: 20.0),
             label: 'About Us',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
-        backgroundColor: const Color(0xFF00A94F),
+        backgroundColor: Colors.blue,
         onTap: _onItemTapped,
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: <Widget>[
             DrawerHeader(
               decoration: const BoxDecoration(
-                color: Color(0xFF00A94F),
+                color: Colors.blue,
               ),
-              child: Image.asset(
-                'assets/images/choa_banner_logo.png',
-                fit: BoxFit.contain,
-                height: 100,
-                width: 100,
+              child: SizedBox( // Fill the entire header with blue
+                width: double.infinity,
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    fontFamily: 'Sans-serif',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home, color: Colors.white),
-              tileColor: const Color(0xFF00A94F),
-              title: const Text('Home',
-                  style:
-                      TextStyle(fontFamily: 'Sans-serif', color: Colors.white)),
+              leading: const Icon(Icons.pin_drop, color: Colors.blue),
+              title: const Text('Destinations',
+                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
               onTap: () {
                 Navigator.pop(context);
                 setState(() {
@@ -126,24 +127,46 @@ class _MainScreenState extends State<MainScreen> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings, color: Colors.white),
-              tileColor: const Color(0xFF00A94F),
-              title: const Text('Settings',
-                  style:
-                      TextStyle(fontFamily: 'Sans-serif', color: Colors.white)),
+              leading: const Icon(Icons.map, color: Colors.blue),
+              title: const Text('Map',
+                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SettingsPage(
-                      isDarkMode: widget.isDarkMode,
-                      textSize: widget.textSize,
-                      onDarkModeToggle: widget.onDarkModeToggle,
-                      onTextSizeChange: widget.onTextSizeChange,
-                    ),
-                  ),
-                );
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 0;
+                });
               },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info, color: Colors.blue),
+              title: const Text('About Us',
+                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
+              onTap: () {
+                Navigator.pop(context);
+                setState(() {
+                  _selectedIndex = 2;
+                });
+              },
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: const Icon(Icons.settings, color: Colors.blue),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SettingsPage(
+                        isDarkMode: widget.isDarkMode,
+                        textSize: widget.textSize,
+                        onDarkModeToggle: widget.onDarkModeToggle,
+                        onTextSizeChange: widget.onTextSizeChange,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
