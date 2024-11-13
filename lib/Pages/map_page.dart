@@ -15,6 +15,7 @@ class MapPage extends StatelessWidget {
               panEnabled: true,
               child: Image.asset(
                 'assets/images/mock_app.png',
+                //change
                 width: screenHeight * 0.75,
                 height: screenHeight,
               )),

@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   });
                   widget.onDarkModeToggle(value);
                 },
-                activeTrackColor: const Color.fromARGB(255, 177, 132, 10),
+                activeTrackColor: const Color.fromARGB(255, 182, 137, 13),
                 inactiveTrackColor: const Color.fromARGB(202, 29, 28, 28),
                 activeColor: Colors.white,
                 inactiveThumbColor: Colors.white,

@@ -23,19 +23,87 @@ class AboutUsPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'Group Members: Harrison, Zach, Lucas, Eddie',
+              'Our Team',
               style: TextStyle(
                   fontFamily: 'Sans-serif',
                   fontSize: textSize + 4,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Harrison, Zach, Lucas, Eddie',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize,
+                  fontWeight: FontWeight.w500,
                   color: Colors.blue),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             Text(
-              'The Map Application is a mobile app designed to help patients, families, and visitors navigate through the hospital using checkpoints. The inspiration for this project came from our lead documentation and algorithms engineer, Zach, whose mother works at the hospital. She noticed how confusing the layout of the new hospital additions could be, and Zach decided to find a solution.\n'
-              'Zach brought the rest of the team together to develop this mobile application, aiming to improve the experience of navigating the hospital. Initially, the idea was to use QR-code checkpoints for patients once they checked in, with a simple database to verify information and authorization. This would allow users to receive an ID linked to a specific room, enabling navigation through the hospital using different methods, such as QR-codes, GPS, or a roadmap.\n'
-              'However, due to the hospital\'s security and privacy policies, we had to adjust our plan. The current version of the Map Application is a beta that keeps the core idea intact, though all data is mocked for demonstration purposes. We are excited to present this version to you and continue our journey in developing a helpful tool for hospital visitors.',
+              'Our Mission',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize + 6,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'The INDY-5 Map Application is designed to enhance the navigation experience for patients, families, and visitors within hospital facilities. Our goal is to make hospital visits less stressful by providing clear, intuitive directions using modern technology.',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Our Story',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize + 6,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'The idea for this application originated from a real need identified by Zach, whose mother works at the hospital. She observed that navigating the expanding hospital layout was becoming increasingly difficult for visitors. Zach, along with Harrison, Lucas, and Eddie, decided to take on the challenge of creating a solution that would improve the hospital experience for everyone.',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Our Approach',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize + 6,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Initially, we envisioned a system using QR-code checkpoints to guide patients and visitors throughout the hospital. By scanning these checkpoints, users would receive personalized navigation instructions. However, due to privacy and security constraints, we adapted our approach to create a beta version that maintains the core idea while using mocked data for demonstration purposes.',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Looking Ahead',
+              style: TextStyle(
+                  fontFamily: 'Sans-serif',
+                  fontSize: textSize + 6,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'We are committed to continuing our work on the INDY-5 Map Application, striving to make hospital visits as seamless as possible. We believe that with innovation and teamwork, we can significantly improve the patient and visitor experience.',
               style: TextStyle(
                   fontFamily: 'Sans-serif',
                   fontSize: textSize,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Pages/about_us_page.dart';
-import 'Pages/home_page.dart';
+import 'Pages/destination_page.dart';
 import 'Pages/map_page.dart';
 import 'Pages/settings_page.dart';
 
@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
       setState(() {
         _screens = [
           MapPage(textSize: widget.textSize),
-          HomePage(textSize: widget.textSize),
+          DestinationPage(textSize: widget.textSize),
           AboutUsPage(textSize: widget.textSize),
         ];
       });
@@ -46,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     _screens = [
       MapPage(textSize: widget.textSize),
-      HomePage(textSize: widget.textSize),
+      DestinationPage(textSize: widget.textSize),
       AboutUsPage(textSize: widget.textSize),
     ];
   }
@@ -63,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          _selectedIndex == 0 ? 'MAP' : _selectedIndex == 1 ? 'HOME' : 'ABOUT US',
+          _selectedIndex == 0 ? 'MAP' : _selectedIndex == 1 ? 'DESTINATIONS' : 'ABOUT US',
           style: const TextStyle(
             fontFamily: 'Sans-serif',
             fontWeight: FontWeight.bold,
@@ -71,6 +71,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         backgroundColor: Colors.blue,
+        toolbarHeight: 80, // Fill the whole top bar
       ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -80,11 +81,11 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Map',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 20.0),
-            label: 'Home',
+            icon: Icon(Icons.pin_drop),
+            label: 'Destinations',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.info, size: 20.0),
             label: 'About Us',
           ),
         ],
@@ -94,26 +95,28 @@ class _MainScreenState extends State<MainScreen> {
         onTap: _onItemTapped,
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: <Widget>[
             DrawerHeader(
               decoration: const BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  fontFamily: 'Sans-serif',
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              child: SizedBox( // Fill the entire header with blue
+                width: double.infinity,
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    fontFamily: 'Sans-serif',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home, color: Colors.blue),
-              title: const Text('Home',
+              leading: const Icon(Icons.pin_drop, color: Colors.blue),
+              title: const Text('Destinations',
                   style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
               onTap: () {
                 Navigator.pop(context);
