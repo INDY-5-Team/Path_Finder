@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               decoration: InputDecoration(
                 labelText: 'Current location',
                 border: OutlineInputBorder(),
-                suffixIcon: (Platform.isAndroid || Platform.isIOS)
+                suffixIcon: (!Platform.isWindows)
                     ? IconButton(
                         icon: Icon(Icons.qr_code),
                         onPressed: () => Navigator.of(context).push(
