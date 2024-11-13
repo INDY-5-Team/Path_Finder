@@ -52,12 +52,17 @@ class _HomePageState extends State<HomePage> {
               decoration: InputDecoration(
                 labelText: 'Current location',
                 border: OutlineInputBorder(),
-                suffixIcon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => QrCodeScanner(setresult: setresult))
-                  ),
-                  icon: Icon(Icons.qr_code),
-                )
+                suffixIcon: (kIsWeb || !Platform.isWindows)
+                    ? IconButton(
+                        icon: Icon(Icons.qr_code),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                QrCodeScanner(setresult: setresult),
+                          ),
+                        ),
+                      )
+                    : null,
               ),
             ),
             const TextField(
