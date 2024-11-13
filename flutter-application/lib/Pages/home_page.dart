@@ -18,33 +18,62 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .7;
     return Center(
       child: SizedBox(
-        width: 250,
+        width: screenWidth >= 250 ? screenWidth : 250,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _result,
+          children: [SizedBox(
+            height: 275,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [Text(
+                'How to use?',
+                  style: TextStyle(
+                    fontSize: widget.textSize + 2,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF00A94F)),
+                  ),
+                Text('1. Scan QR code on designated "anchor" locations or input it manually\n'
+                '2. Input destination\n'
+                '3. Press search and follow directions',
+                  style: TextStyle(
+                    fontSize: widget.textSize,
+                  color: const Color(0xFF00A94F)),
+                  textAlign: TextAlign.left,
+                  ),
+                ],
+              )
+            )
+          ),
+            TextField(controller: _result,
               decoration: InputDecoration(
                 labelText: 'Current location',
                 border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => QrCodeScanner(setresult: setresult))
+                  ),
+                  icon: Icon(Icons.qr_code),
+                )
               ),
             ),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Enter a Location',
+                labelText: 'Enter a Destination',
               ),
             ),
-            TextButton(
+            TextButton( //TODO: connect search algorithm with button and controllers
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => QrCodeScanner(setresult: setresult),
                 ),
               ),
-              child: Text("Scan QR"),
+              child: Text("Search",
+              ),
             ),
           ],
         ),
