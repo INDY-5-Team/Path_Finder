@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   mobile_scanner: ^6.0.2
+  dijkstra: ^0.0.4
 
 
 dev_dependencies:
@@ -91,10 +92,10 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
   assets:
-      - assets/choa_app_icon_logo.png  
-      - assets/choa_banner_logo.png
-      - assets/choa_building.jpg
-      - assets/mock_app.png
+      - assets/images/choa_app_icon_logo.png  
+      - assets/images/choa_banner_logo.png
+      - assets/images/choa_building.jpg
+      - assets/images/mock_app.png
 
 
   # The followin g adds png of CHOA Logo Icon to your application.
