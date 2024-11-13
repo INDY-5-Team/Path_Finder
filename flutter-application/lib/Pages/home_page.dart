@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_navigation_app/Utilities/qrscan.dart';
 
@@ -26,46 +25,39 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                height: 275,
-                child: SingleChildScrollView(
-                    child: Column(
-                  children: [
-                    Text(
-                      'How to use?',
-                      style: TextStyle(
-                          fontSize: widget.textSize + 2,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFF00A94F)),
-                    ),
-                    Text(
-                      '1. Scan QR code on designated "anchor" locations or input it manually\n'
-                      '2. Input destination\n'
-                      '3. Press search and follow directions',
-                      style: TextStyle(
-                          fontSize: widget.textSize,
-                          color: const Color(0xFF00A94F)),
-                      textAlign: TextAlign.left,
-                    ),
-                  ],
-                ))),
-            TextField(
-              controller: _result,
+          children: [SizedBox(
+            height: 275,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [Text(
+                'How to use?',
+                  style: TextStyle(
+                    fontSize: widget.textSize + 2,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF00A94F)),
+                  ),
+                Text('1. Scan QR code on designated "anchor" locations or input it manually\n'
+                '2. Input destination\n'
+                '3. Press search and follow directions',
+                  style: TextStyle(
+                    fontSize: widget.textSize,
+                  color: const Color(0xFF00A94F)),
+                  textAlign: TextAlign.left,
+                  ),
+                ],
+              )
+            )
+          ),
+            TextField(controller: _result,
               decoration: InputDecoration(
                 labelText: 'Current location',
                 border: OutlineInputBorder(),
-                suffixIcon: (!Platform.isWindows)
-                    ? IconButton(
-                        icon: Icon(Icons.qr_code),
-                        onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                QrCodeScanner(setresult: setresult),
-                          ),
-                        ),
-                      )
-                    : null, // No icon for non-mobile platforms
+                suffixIcon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => QrCodeScanner(setresult: setresult))
+                  ),
+                  icon: Icon(Icons.qr_code),
+                )
               ),
             ),
             const TextField(
@@ -74,15 +66,13 @@ class _HomePageState extends State<HomePage> {
                 labelText: 'Enter a Destination',
               ),
             ),
-            TextButton(
-              //TODO: connect search algorithm with button and controllers
+            TextButton( //TODO: connect search algorithm with button and controllers
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => QrCodeScanner(setresult: setresult),
                 ),
               ),
-              child: Text(
-                "Search",
+              child: Text("Search",
               ),
             ),
           ],

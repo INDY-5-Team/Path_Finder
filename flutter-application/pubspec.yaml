@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   mobile_scanner: ^6.0.2
   dijkstra: ^0.0.4
-  flutter_svg: ^2.0.14
 
 
 dev_dependencies:
@@ -97,8 +96,6 @@ flutter:
       - assets/images/choa_banner_logo.png
       - assets/images/choa_building.jpg
       - assets/images/mock_app.png
-      - assets/images/mock_app.svg
-      - assets/images/mock_app_no_bg.svg
 
 
   # The followin g adds png of CHOA Logo Icon to your application.
