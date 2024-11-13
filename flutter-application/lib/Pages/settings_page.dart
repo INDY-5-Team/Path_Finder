@@ -35,22 +35,32 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Settings'),
-        backgroundColor: const Color(0xFF00A94F),
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SwitchListTile(
-              title: const Text('Dark Mode'),
-              value: _isDarkMode,
-              onChanged: (bool value) {
-                setState(() {
-                  _isDarkMode = value;
-                });
-                widget.onDarkModeToggle(value);
-              },
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Switch(
+                value: _isDarkMode,
+                onChanged: (bool value) {
+                  setState(() {
+                    _isDarkMode = value;
+                  });
+                  widget.onDarkModeToggle(value);
+                },
+                activeTrackColor: const Color.fromARGB(255, 182, 137, 13),
+                inactiveTrackColor: const Color.fromARGB(202, 29, 28, 28),
+                activeColor: Colors.white,
+                inactiveThumbColor: Colors.white,
+
+                //for sun an moon logo in the darkmode button
+                //activeThumbImage: const AssetImage('assets/images/sun_icon.png'), // Replace with sun icon
+                //inactiveThumbImage: const AssetImage('assets/images/moon_icon.png'), // Replace with moon icon
+              ),
             ),
             const SizedBox(height: 20),
             const Text('Text Size',
@@ -59,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text('Aa',
-                    style: TextStyle(fontFamily: 'Sans-serif', fontSize: 12)),
+                    style: TextStyle(fontFamily: 'Sans-serif', fontSize: 12, color: Colors.blue)),
                 Expanded(
                   child: Slider(
                     value: _textSize,
@@ -76,14 +86,14 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
                 const Text('Aa',
-                    style: TextStyle(fontFamily: 'Sans-serif', fontSize: 36)),
+                    style: TextStyle(fontFamily: 'Sans-serif', fontSize: 36, color: Colors.blue)),
               ],
             ),
             const SizedBox(height: 20),
             Center(
               child: Text(
                 'Settings Preview',
-                style: TextStyle(fontFamily: 'Sans-serif', fontSize: _textSize),
+                style: TextStyle(fontFamily: 'Sans-serif', fontSize: _textSize, color: Colors.blue),
               ),
             ),
           ],
