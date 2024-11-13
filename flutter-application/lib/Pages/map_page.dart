@@ -14,7 +14,7 @@ class MapPage extends StatelessWidget {
           InteractiveViewer(
               panEnabled: true,
               child: Image.asset(
-                'assets/mock_app.png',
+                'assets/images/mock_app.png',
                 width: screenHeight * 0.75,
                 height: screenHeight,
               ))

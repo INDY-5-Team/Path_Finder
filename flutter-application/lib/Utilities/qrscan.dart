@@ -21,9 +21,13 @@ class QrCodeScanner extends StatelessWidget {
         if (barcode.rawValue != null) {
           setresult(barcode.rawValue);
           await controller
-              .stop()
-              .then((value) => controller.dispose())
-              .then((value) => Navigator.of(context).pop());
+            .stop()
+            .then((value) {
+            controller.dispose();
+            if (context.mounted) {
+              Navigator.of(context).pop();
+            }
+          });
         }
       },
     );
