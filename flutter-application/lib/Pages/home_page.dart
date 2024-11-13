@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:my_navigation_app/qrscan.dart';
+import 'package:my_navigation_app/Utilities/qrscan.dart';
 
 class HomePage extends StatefulWidget {
   final double textSize;
-  const HomePage({Key? key, required this.textSize});
+  const HomePage({super.key, required this.textSize});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
-class _HomePageState extends State<HomePage>{
+
+class _HomePageState extends State<HomePage> {
   final TextEditingController _result = TextEditingController();
-  
-  void setresult(String result){
+
+  void setresult(String result) {
     _result.text = result;
   }
 
@@ -80,4 +81,3 @@ class _HomePageState extends State<HomePage>{
     );
   }
 }
-

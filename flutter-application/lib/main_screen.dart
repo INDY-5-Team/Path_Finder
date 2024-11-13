@@ -64,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
         centerTitle: true,
         title: _selectedIndex == 1
             ? Image.asset(
-                'assets/choa_banner_logo.png',
+                'assets/images/choa_banner_logo.png',
                 height: 40,
               )
             : Text(
@@ -106,7 +106,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: Color(0xFF00A94F),
               ),
               child: Image.asset(
-                'assets/choa_banner_logo.png',
+                'assets/images/choa_banner_logo.png',
                 fit: BoxFit.contain,
                 height: 100,
                 width: 100,

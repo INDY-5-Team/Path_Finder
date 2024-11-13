@@ -5,7 +5,7 @@ class QrCodeScanner extends StatelessWidget {
   QrCodeScanner({
     required this.setresult,
     super.key,
-    });
+  });
 
   final Function setresult;
   final MobileScannerController controller = MobileScannerController();
@@ -18,12 +18,16 @@ class QrCodeScanner extends StatelessWidget {
         final List<Barcode> barcodes = capture.barcodes;
         final barcode = barcodes.first;
 
-        if(barcode.rawValue != null){
+        if (barcode.rawValue != null) {
           setresult(barcode.rawValue);
           await controller
             .stop()
-            .then((value) => controller.dispose())
-            .then((value) => Navigator.of(context).pop());
+            .then((value) {
+            controller.dispose();
+            if (context.mounted) {
+              Navigator.of(context).pop();
+            }
+          });
         }
       },
     );
