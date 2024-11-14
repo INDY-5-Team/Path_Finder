@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+
 class MapPage extends StatelessWidget {
   final double textSize;
-  const MapPage({super.key, required this.textSize});
+  final String? currentLocation;
+  final String? destination;
+  const MapPage({super.key, required this.textSize, this.currentLocation, this.destination});
 
   @override
   Widget build(BuildContext context) {
