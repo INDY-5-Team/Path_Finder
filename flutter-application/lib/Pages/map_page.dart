@@ -7,8 +7,8 @@ class MapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final pinColor = Colors.blue;
+    final hallwayColor = Colors.amber;
 
     return Scaffold(
       body: InteractiveViewer(
@@ -17,384 +17,131 @@ class MapPage extends StatelessWidget {
         minScale: 0.5,
         maxScale: 4.0,
         child: Center(
-          child: Stack(
-            children: [
-              SizedBox(
-              width: screenWidth * 2,
-              height: screenHeight * 2,
-              child: SvgPicture.asset(
-                'assets/images/mock_app_no_bg.svg',
-                fit: BoxFit.none,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final screenWidth = constraints.maxWidth;
+              final screenHeight = constraints.maxHeight;
+              return Stack(
+                children: [
+                  SizedBox(
+                    width: screenWidth * 2,
+                    height: screenHeight * 2,
+                    child: SvgPicture.asset(
+                      'assets/images/mock_app_no_bg.svg',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  buildRoom(screenWidth, screenHeight, 0.05, 0.4, "J-135", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.1, 0.4, "J-133", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.14, 0.4, "J-131", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.201, 0.4, "J-120", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.27, 0.4, "J-109", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.32, 0.4, "J-107", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.37, 0.38, "J-105", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.39, 0.3, "Stacks", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.58, 0.3, "J-152", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.58, 0.67, "J-151", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.65, 0.4, "J-156", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.73, 0.4, "J-158", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.82, 0.4, "J-160", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.92, 0.4, "J-163", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.92, 0.58, "J-165", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.85, 0.58, "J-164", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.78, 0.58, "J-161", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.72, 0.58, "J-157", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.69, 0.58, "J-159", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.6, 0.58, "J-153", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.37, 0.68, "J-101", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.35, 0.55, "J-103", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.31, 0.57, "J-106", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.25, 0.57, "J-108", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.20, 0.57, "J-110", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.14, 0.57, "J-130", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.1, 0.57, "J-132", pinColor),
+                  buildRoom(screenWidth, screenHeight, 0.05, 0.57, "J-134", pinColor),
+
+                  buildHall(screenWidth, screenHeight, 0.05, 0.53, 'H1', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.1, 0.53, 'H2', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.12, 0.53, 'H3', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.14, 0.53, 'H4', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.17, 0.53, 'H5', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.19, 0.53, 'H6', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.21, 0.53, 'H7', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.25, 0.53, 'H8', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.28, 0.53, 'H9', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.30, 0.53, 'H10', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.33, 0.53, 'H11', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.36, 0.53, 'H12', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H13', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H14', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.43, 0.53, 'H15', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.43, 0.58, 'H16', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.43, 0.63, 'H17', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.43, 0.66, 'H18', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.49, 0.66, 'H19', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.545, 0.66, 'H20', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.545, 0.62, 'H21', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.545, 0.60, 'H22', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.545, 0.53, 'H23', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.57, 0.53, 'H24', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.585, 0.53, 'H25', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H26', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H27', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H28', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H29', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H30', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H31', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H32', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H33', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H34', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H35', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H36', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H37', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H38', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.545, 0.42, 'H39', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.37, 0.53, 'H40', hallwayColor),
+                  buildHall(screenWidth, screenHeight, 0.43, 0.42, 'H41', hallwayColor),
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Helper function to create positioned text and icon elements based on percentages
+  Positioned buildRoom(
+      double screenWidth, double screenHeight, double topPercent, double leftPercent, String label, Color color) {
+    return Positioned(
+      top: screenHeight * topPercent,
+      left: screenWidth * leftPercent,
+      key: Key(label),
+      child: Row(
+        children: <Widget>[
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.black,
             ),
           ),
-          Positioned(
-            top: screenHeight/2 - 450, left: screenWidth/2 - 45,
-            key: Key('J-135'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-135",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 410, left: screenWidth/2 - 45,
-            key: Key('J-133'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-133",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 370, left: screenWidth/2 - 45,
-            key: Key('J-131'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-131",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 318, left: screenWidth/2 - 45,
-            key: Key('J-120'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-120",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 268, left: screenWidth/2 - 45,
-            key: Key('J-109'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-109",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 230, left: screenWidth/2 - 45,
-            key: Key('J-107'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-107",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
+          Icon(Icons.location_pin, color: color),
+        ],
+      ),
+    );
+  }
 
-          //Zachs addition of points
-          Positioned(
-            top: screenHeight/2 - 20, left: screenWidth/2 - 75,
-            key: Key('J-152'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-152",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 20, left: screenWidth/2 + 80,
-            key: Key('J-151'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-151",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 40, left: screenWidth/2 - 45,
-            key: Key('J-156'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-156",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 100, left: screenWidth/2 - 45,
-            key: Key('J-158'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-158",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 170, left: screenWidth/2 - 45,
-            key: Key('J-160'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-160",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 260, left: screenWidth/2 - 45,
-            key: Key('J-163'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-163",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 270, left: screenWidth/2 + 40,
-            key: Key('J-165'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-165",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 200, left: screenWidth/2 + 40,
-            key: Key('J-164'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-164",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 130, left: screenWidth/2 + 40,
-            key: Key('J-161'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-161",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 35, left: screenWidth/2 + 40,
-            key: Key('J-157'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-157",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 + 75, left: screenWidth/2 + 40,
-            key: Key('J-159'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-159",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 5, left: screenWidth/2 + 25,
-            key: Key('J-153'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-153",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 190, left: screenWidth/2 + 80,
-            key: Key('J-101'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-101",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 230, left: screenWidth/2 + 40,
-            key: Key('J-106'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-106",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 268, left: screenWidth/2 + 40,
-            key: Key('J-108'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-108",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 318, left: screenWidth/2 + 40,
-            key: Key('J-110'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-110",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 370, left: screenWidth/2 + 40,
-            key: Key('J-130'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-130",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 410, left: screenWidth/2 + 40,
-            key: Key('J-132'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-132",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 450, left: screenWidth/2 + 40,
-            key: Key('J-134'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "J-134",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-          Positioned(
-            top: screenHeight/2 - 190, left: screenWidth/2 - 75,
-            key: Key('Stacks'),
-            child: Row(
-                children: <Widget>[                  
-                  Text(
-                    "Stacks",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.black,                      
-                    )),
-                  Icon(Icons.location_pin, color: Colors.blue),
-                ]),                          
-          ),
-        ]),
-        )
+  // Helper function to create positioned circle icons based on percentages
+  Positioned buildHall(double screenWidth, double screenHeight, double topPercent, double leftPercent, String label, Color color) {
+    return Positioned(
+      top: screenHeight * topPercent,
+      left: screenWidth * leftPercent,
+      key: Key(label),
+      child: Icon(
+        Icons.circle_rounded,
+        color: color,
+        size: textSize / 3,
       ),
     );
   }
