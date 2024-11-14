@@ -7,7 +7,8 @@ class MapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: InteractiveViewer(
@@ -19,15 +20,15 @@ class MapPage extends StatelessWidget {
           child: Stack(
             children: [
               SizedBox(
-              width: screenSize.width * 2,
-              height: screenSize.height * 2,
+              width: screenWidth * 2,
+              height: screenHeight * 2,
               child: SvgPicture.asset(
                 'assets/images/mock_app_no_bg.svg',
                 fit: BoxFit.none,
             ),
           ),
           Positioned(
-            top: 40, left: 180,
+            top: screenHeight/2 - 450, left: screenWidth/2 - 45,
             key: Key('J-135'),
             child: Row(
                 children: <Widget>[                  
@@ -41,7 +42,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 80, left: 180,
+            top: screenHeight/2 - 410, left: screenWidth/2 - 45,
             key: Key('J-133'),
             child: Row(
                 children: <Widget>[                  
@@ -55,7 +56,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 120, left: 180,
+            top: screenHeight/2 - 370, left: screenWidth/2 - 45,
             key: Key('J-131'),
             child: Row(
                 children: <Widget>[                  
@@ -69,7 +70,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 168, left: 180,
+            top: screenHeight/2 - 318, left: screenWidth/2 - 45,
             key: Key('J-120'),
             child: Row(
                 children: <Widget>[                  
@@ -83,7 +84,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 216, left: 180,
+            top: screenHeight/2 - 268, left: screenWidth/2 - 45,
             key: Key('J-109'),
             child: Row(
                 children: <Widget>[                  
@@ -97,7 +98,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 260, left: 180,
+            top: screenHeight/2 - 230, left: screenWidth/2 - 45,
             key: Key('J-107'),
             child: Row(
                 children: <Widget>[                  
@@ -113,7 +114,7 @@ class MapPage extends StatelessWidget {
 
           //Zachs addition of points
           Positioned(
-            top: 470, left: 145,
+            top: screenHeight/2 - 20, left: screenWidth/2 - 75,
             key: Key('J-152'),
             child: Row(
                 children: <Widget>[                  
@@ -127,7 +128,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 470, left: 310,
+            top: screenHeight/2 - 20, left: screenWidth/2 + 80,
             key: Key('J-151'),
             child: Row(
                 children: <Widget>[                  
@@ -141,7 +142,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 530, left: 185,
+            top: screenHeight/2 + 40, left: screenWidth/2 - 45,
             key: Key('J-156'),
             child: Row(
                 children: <Widget>[                  
@@ -155,7 +156,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 590, left: 185,
+            top: screenHeight/2 + 100, left: screenWidth/2 - 45,
             key: Key('J-158'),
             child: Row(
                 children: <Widget>[                  
@@ -169,7 +170,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 660, left: 190,
+            top: screenHeight/2 + 170, left: screenWidth/2 - 45,
             key: Key('J-160'),
             child: Row(
                 children: <Widget>[                  
@@ -183,7 +184,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 750, left: 190,
+            top: screenHeight/2 + 260, left: screenWidth/2 - 45,
             key: Key('J-163'),
             child: Row(
                 children: <Widget>[                  
@@ -197,7 +198,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 760, left: 270,
+            top: screenHeight/2 + 270, left: screenWidth/2 + 40,
             key: Key('J-165'),
             child: Row(
                 children: <Widget>[                  
@@ -211,7 +212,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 690, left: 270,
+            top: screenHeight/2 + 200, left: screenWidth/2 + 40,
             key: Key('J-164'),
             child: Row(
                 children: <Widget>[                  
@@ -225,7 +226,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 615, left: 270,
+            top: screenHeight/2 + 130, left: screenWidth/2 + 40,
             key: Key('J-161'),
             child: Row(
                 children: <Widget>[                  
@@ -239,7 +240,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 520, left: 265,
+            top: screenHeight/2 + 35, left: screenWidth/2 + 40,
             key: Key('J-157'),
             child: Row(
                 children: <Widget>[                  
@@ -253,7 +254,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 560, left: 265,
+            top: screenHeight/2 + 75, left: screenWidth/2 + 40,
             key: Key('J-159'),
             child: Row(
                 children: <Widget>[                  
@@ -267,7 +268,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 480, left: 250,
+            top: screenHeight/2 - 5, left: screenWidth/2 + 25,
             key: Key('J-153'),
             child: Row(
                 children: <Widget>[                  
@@ -281,7 +282,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 300, left: 310,
+            top: screenHeight/2 - 190, left: screenWidth/2 + 80,
             key: Key('J-101'),
             child: Row(
                 children: <Widget>[                  
@@ -295,7 +296,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 260, left: 260,
+            top: screenHeight/2 - 230, left: screenWidth/2 + 40,
             key: Key('J-106'),
             child: Row(
                 children: <Widget>[                  
@@ -309,7 +310,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 210, left: 260,
+            top: screenHeight/2 - 268, left: screenWidth/2 + 40,
             key: Key('J-108'),
             child: Row(
                 children: <Widget>[                  
@@ -323,7 +324,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 170, left: 260,
+            top: screenHeight/2 - 318, left: screenWidth/2 + 40,
             key: Key('J-110'),
             child: Row(
                 children: <Widget>[                  
@@ -337,7 +338,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 120, left: 260,
+            top: screenHeight/2 - 370, left: screenWidth/2 + 40,
             key: Key('J-130'),
             child: Row(
                 children: <Widget>[                  
@@ -351,7 +352,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 80, left: 260,
+            top: screenHeight/2 - 410, left: screenWidth/2 + 40,
             key: Key('J-132'),
             child: Row(
                 children: <Widget>[                  
@@ -365,7 +366,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 40, left: 255,
+            top: screenHeight/2 - 450, left: screenWidth/2 + 40,
             key: Key('J-134'),
             child: Row(
                 children: <Widget>[                  
@@ -379,7 +380,7 @@ class MapPage extends StatelessWidget {
                 ]),                          
           ),
           Positioned(
-            top: 300, left: 140,
+            top: screenHeight/2 - 190, left: screenWidth/2 - 75,
             key: Key('Stacks'),
             child: Row(
                 children: <Widget>[                  
