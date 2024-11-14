@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_navigation_app/Utilities/qrscan.dart';
-//
+
+import 'map_page.dart';
 
 class DestinationPage extends StatefulWidget {
   final double textSize;
@@ -11,10 +12,14 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _HomePageState extends State<DestinationPage> {
-  final TextEditingController _result = TextEditingController();
+  final TextEditingController _currloca = TextEditingController();
+  final TextEditingController _dest = TextEditingController();
 
   void setresult(String result) {
-    _result.text = result;
+    _currloca.text = result;
+  }
+  void setdesti(String dest){
+    _dest.text = dest;
   }
 
   @override
@@ -77,7 +82,7 @@ class _HomePageState extends State<DestinationPage> {
               ),
             ),
             TextField(
-              controller: _result,
+              controller: _currloca,
               decoration: InputDecoration(
                 labelText: 'Current Location',
                 border: OutlineInputBorder(),
@@ -90,7 +95,8 @@ class _HomePageState extends State<DestinationPage> {
               ),
             ),
             const SizedBox(height: 16),
-            const TextField(
+            TextField(
+              controller: _dest,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Enter Destination',
@@ -100,7 +106,7 @@ class _HomePageState extends State<DestinationPage> {
             FloatingActionButton(
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => QrCodeScanner(setresult: setresult),
+                  builder: (context) => MapPage(textSize: widget.textSize, currentLocation: _currloca.text, destination: _dest.text),
                 ),
               ),
               backgroundColor: Colors.blue,
