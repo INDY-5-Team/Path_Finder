@@ -99,7 +99,7 @@ class MapPageState extends State<MapPage> {
                           ),
                           ..._buildRooms(screenWidth, screenHeight, pinColor),
                           ..._buildHalls(screenWidth, screenHeight, hallwayColor, route),
-                          if (route.isNotEmpty) buildPolyline(screenWidth, screenHeight, route),
+                          if (route.isNotEmpty) buildPolyline(screenWidth, screenHeight, route, _buildHalls(screenWidth, screenHeight, hallwayColor, route)),
                         ],
                       );
                     },
@@ -114,138 +114,113 @@ class MapPageState extends State<MapPage> {
   }
 
   List<Widget> _buildRooms(double screenWidth, double screenHeight, Color pinColor) {
-    List<Map<String, dynamic>> rooms = [
-      {'topPercent': 0.05, 'leftPercent': 0.40909, 'label': 'J-135'},
-      {'topPercent': 0.1, 'leftPercent': 0.409, 'label': 'J-133'},
-      {'topPercent': 0.14, 'leftPercent': 0.409, 'label': 'J-131'},
-      {'topPercent': 0.201, 'leftPercent': 0.409, 'label': 'J-120'},
-      {'topPercent': 0.27, 'leftPercent': 0.409, 'label': 'J-109'},
-      {'topPercent': 0.32, 'leftPercent': 0.409, 'label': 'J-107'},
-      {'topPercent': 0.37, 'leftPercent': 0.38, 'label': 'J-105'},
-      {'topPercent': 0.39, 'leftPercent': 0.3, 'label': 'Stacks'},
-      {'topPercent': 0.58, 'leftPercent': 0.35, 'label': 'J-152'},
-      {'topPercent': 0.58, 'leftPercent': 0.60, 'label': 'J-151'},
-      {'topPercent': 0.65, 'leftPercent': 0.409, 'label': 'J-156'},
-      {'topPercent': 0.73, 'leftPercent': 0.409, 'label': 'J-158'},
-      {'topPercent': 0.82, 'leftPercent': 0.409, 'label': 'J-160'},
-      {'topPercent': 0.92, 'leftPercent': 0.409, 'label': 'J-163'},
-      {'topPercent': 0.92, 'leftPercent': 0.53, 'label': 'J-165'},
-      {'topPercent': 0.85, 'leftPercent': 0.53, 'label': 'J-164'},
-      {'topPercent': 0.78, 'leftPercent': 0.53, 'label': 'J-161'},
-      {'topPercent': 0.70, 'leftPercent': 0.53, 'label': 'J-157'},
-      {'topPercent': 0.64, 'leftPercent': 0.53, 'label': 'J-159'},
-      {'topPercent': 0.6, 'leftPercent': 0.55, 'label': 'J-153'},
-      {'topPercent': 0.37, 'leftPercent': 0.60, 'label': 'J-101'},
-      {'topPercent': 0.35, 'leftPercent': 0.52, 'label': 'J-103'},
-      {'topPercent': 0.31, 'leftPercent': 0.53, 'label': 'J-106'},
-      {'topPercent': 0.25, 'leftPercent': 0.53, 'label': 'J-108'},
-      {'topPercent': 0.20, 'leftPercent': 0.53, 'label': 'J-110'},
-      {'topPercent': 0.14, 'leftPercent': 0.53, 'label': 'J-130'},
-      {'topPercent': 0.1, 'leftPercent': 0.53, 'label': 'J-132'},
-      {'topPercent': 0.05, 'leftPercent': 0.53, 'label': 'J-134'},
+    return [
+      buildRoom(screenWidth, screenHeight, 0.05, 0.45, "J-135", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.1, 0.45, "J-133", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.14, 0.45, "J-131", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.201, 0.45, "J-120", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.27, 0.45, "J-109", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.32, 0.45, "J-107", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.37, 0.45, "J-105", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.39, 0.4, "Stacks", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.57, 0.4, "J-152", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.57, 0.617, "J-151", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.65, 0.45, "J-156", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.73, 0.45, "J-158", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.82, 0.45, "J-160", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.92, 0.45, "J-163", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.92, 0.56, "J-165", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.86, 0.55, "J-164", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.78, 0.55, "J-161", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.70, 0.55, "J-157", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.64, 0.55, "J-159", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.6, 0.55, "J-153", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.39, 0.61, "J-101", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.36, 0.545, "J-103", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.31, 0.545, "J-106", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.27, 0.545, "J-108", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.20, 0.545, "J-110", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.14, 0.545, "J-130", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.1, 0.545, "J-132", pinColor),
+      buildRoom(screenWidth, screenHeight, 0.05, 0.545, "J-134", pinColor),
     ];
-    return rooms.map((room) => buildRoom(screenWidth, screenHeight, room['topPercent'], room['leftPercent'], room['label'], pinColor)).toList();
   }
 
-  List<Widget> _buildHalls(double screenWidth, double screenHeight, Color hallwayColor, List<dynamic> route) {
-    List<Map<String, dynamic>> hallPositions = [
-      {'topPercent': 0.05, 'leftPercent': 0.53, 'label': 'H1'},
-      {'topPercent': 0.1, 'leftPercent': 0.53, 'label': 'H2'},
-      {'topPercent': 0.12, 'leftPercent': 0.53, 'label': 'H3'},
-      {'topPercent': 0.14, 'leftPercent': 0.53, 'label': 'H4'},
-      {'topPercent': 0.17, 'leftPercent': 0.53, 'label': 'H5'},
-      {'topPercent': 0.19, 'leftPercent': 0.53, 'label': 'H6'},
-      {'topPercent': 0.21, 'leftPercent': 0.53, 'label': 'H7'},
-      {'topPercent': 0.25, 'leftPercent': 0.53, 'label': 'H8'},
-      {'topPercent': 0.28, 'leftPercent': 0.53, 'label': 'H9'},
-      {'topPercent': 0.30, 'leftPercent': 0.53, 'label': 'H10'},
-      {'topPercent': 0.33, 'leftPercent': 0.53, 'label': 'H11'},
-      {'topPercent': 0.36, 'leftPercent': 0.53, 'label': 'H12'},
-      {'topPercent': 0.37, 'leftPercent': 0.53, 'label': 'H13'},
-      {'topPercent': 0.37, 'leftPercent': 0.53, 'label': 'H14'},
-      {'topPercent': 0.4093, 'leftPercent': 0.53, 'label': 'H15'},
-      {'topPercent': 0.4093, 'leftPercent': 0.53, 'label': 'H16'},
-      {'topPercent': 0.4093, 'leftPercent': 0.63, 'label': 'H17'},
-      {'topPercent': 0.4093, 'leftPercent': 0.66, 'label': 'H18'},
-      {'topPercent': 0.4099, 'leftPercent': 0.66, 'label': 'H19'},
-      {'topPercent': 0.545, 'leftPercent': 0.66, 'label': 'H20'},
-      {'topPercent': 0.545, 'leftPercent': 0.62, 'label': 'H21'},
-      {'topPercent': 0.545, 'leftPercent': 0.60, 'label': 'H22'},
-      {'topPercent': 0.545, 'leftPercent': 0.53, 'label': 'H23'},
-      {'topPercent': 0.53, 'leftPercent': 0.53, 'label': 'H24'},
-      {'topPercent': 0.535, 'leftPercent': 0.53, 'label': 'H25'},
-      {'topPercent': 0.61, 'leftPercent': 0.53, 'label': 'H26'},
-      {'topPercent': 0.625, 'leftPercent': 0.53, 'label': 'H27'},
-      {'topPercent': 0.67, 'leftPercent': 0.53, 'label': 'H28'},
-      {'topPercent': 0.69, 'leftPercent': 0.53, 'label': 'H29'},
-      {'topPercent': 0.70, 'leftPercent': 0.53, 'label': 'H30'},
-      {'topPercent': 0.71, 'leftPercent': 0.53, 'label': 'H31'},
-      {'topPercent': 0.75, 'leftPercent': 0.53, 'label': 'H32'},
-      {'topPercent': 0.82, 'leftPercent': 0.53, 'label': 'H33'},
-      {'topPercent': 0.835, 'leftPercent': 0.53, 'label': 'H34'},
-      {'topPercent': 0.87, 'leftPercent': 0.53, 'label': 'H35'},
-      {'topPercent': 0.88, 'leftPercent': 0.53, 'label': 'H36'},
-      {'topPercent': 0.93, 'leftPercent': 0.53, 'label': 'H37'},
-      {'topPercent': 0.95, 'leftPercent': 0.53, 'label': 'H38'},
-      {'topPercent': 0.545, 'leftPercent': 0.4092, 'label': 'H39'},
-      {'topPercent': 0.4099, 'leftPercent': 0.4092, 'label': 'H40'},
-      {'topPercent': 0.4093, 'leftPercent': 0.4092, 'label': 'H41'},
+  List<Positioned> _buildHalls(double screenWidth, double screenHeight, Color hallwayColor, List<dynamic> route) {
+    return [
+      buildHall(screenWidth, screenHeight, 0.05, 0.52, 'H1', hallwayColor, route.contains('H1')),
+      buildHall(screenWidth, screenHeight, 0.1, 0.52, 'H2', hallwayColor, route.contains('H2')),
+      buildHall(screenWidth, screenHeight, 0.12, 0.52, 'H3', hallwayColor, route.contains('H3')),
+      buildHall(screenWidth, screenHeight, 0.14, 0.52, 'H4', hallwayColor, route.contains('H4')),
+      buildHall(screenWidth, screenHeight, 0.17, 0.52, 'H5', hallwayColor, route.contains('H5')),
+      buildHall(screenWidth, screenHeight, 0.19, 0.52, 'H6', hallwayColor, route.contains('H6')),
+      buildHall(screenWidth, screenHeight, 0.21, 0.52, 'H7', hallwayColor, route.contains('H7')),
+      buildHall(screenWidth, screenHeight, 0.25, 0.52, 'H8', hallwayColor, route.contains('H8')),
+      buildHall(screenWidth, screenHeight, 0.28, 0.52, 'H9', hallwayColor, route.contains('H9')),
+      buildHall(screenWidth, screenHeight, 0.30, 0.52, 'H10', hallwayColor, route.contains('H10')),
+      buildHall(screenWidth, screenHeight, 0.33, 0.52, 'H11', hallwayColor, route.contains('H11')),
+      buildHall(screenWidth, screenHeight, 0.36, 0.52, 'H12', hallwayColor, route.contains('H12')),
+      buildHall(screenWidth, screenHeight, 0.37, 0.52, 'H13', hallwayColor, route.contains('H13')),
+      buildHall(screenWidth, screenHeight, 0.37, 0.52, 'H14', hallwayColor, route.contains('H14')),
+      buildHall(screenWidth, screenHeight, 0.43, 0.52, 'H15', hallwayColor, route.contains('H15')),
+      buildHall(screenWidth, screenHeight, 0.43, 0.54, 'H16', hallwayColor, route.contains('H16')),
+      buildHall(screenWidth, screenHeight, 0.43, 0.58, 'H17', hallwayColor, route.contains('H17')),
+      buildHall(screenWidth, screenHeight, 0.43, 0.6, 'H18', hallwayColor, route.contains('H18')),
+      buildHall(screenWidth, screenHeight, 0.49, 0.60, 'H19', hallwayColor, route.contains('H19')),
+      buildHall(screenWidth, screenHeight, 0.545, 0.6, 'H20', hallwayColor, route.contains('H20')),
+      buildHall(screenWidth, screenHeight, 0.545, 0.57, 'H21', hallwayColor, route.contains('H21')),
+      buildHall(screenWidth, screenHeight, 0.545, 0.555, 'H22', hallwayColor, route.contains('H22')),
+      buildHall(screenWidth, screenHeight, 0.545, 0.52, 'H23', hallwayColor, route.contains('H23')),
+      buildHall(screenWidth, screenHeight, 0.58, 0.52, 'H24', hallwayColor, route.contains('H24')),
+      buildHall(screenWidth, screenHeight, 0.6, 0.52, 'H25', hallwayColor, route.contains('H25')),
+      buildHall(screenWidth, screenHeight, 0.61, 0.52, 'H26', hallwayColor, route.contains('H26')),
+      buildHall(screenWidth, screenHeight, 0.625, 0.52, 'H27', hallwayColor, route.contains('H27')),
+      buildHall(screenWidth, screenHeight, 0.67, 0.52, 'H28', hallwayColor, route.contains('H28')),
+      buildHall(screenWidth, screenHeight, 0.69, 0.52, 'H29', hallwayColor, route.contains('H29')),
+      buildHall(screenWidth, screenHeight, 0.70, 0.52, 'H30', hallwayColor, route.contains('H30')),
+      buildHall(screenWidth, screenHeight, 0.71, 0.52, 'H31', hallwayColor, route.contains('H31')),
+      buildHall(screenWidth, screenHeight, 0.75, 0.52, 'H32', hallwayColor, route.contains('H32')),
+      buildHall(screenWidth, screenHeight, 0.82, 0.52, 'H33', hallwayColor, route.contains('H33')),
+      buildHall(screenWidth, screenHeight, 0.835, 0.52, 'H34', hallwayColor, route.contains('H34')),
+      buildHall(screenWidth, screenHeight, 0.87, 0.52, 'H35', hallwayColor, route.contains('H35')),
+      buildHall(screenWidth, screenHeight, 0.88, 0.52, 'H36', hallwayColor, route.contains('H36')),
+      buildHall(screenWidth, screenHeight, 0.93, 0.52, 'H37', hallwayColor, route.contains('H37')),
+      buildHall(screenWidth, screenHeight, 0.95, 0.52, 'H38', hallwayColor, route.contains('H38')),
+      buildHall(screenWidth, screenHeight, 0.545, 0.445, 'H39', hallwayColor, route.contains('H39')),
+      buildHall(screenWidth, screenHeight, 0.49, 0.45, 'H40', hallwayColor, route.contains('H40')),
+      buildHall(screenWidth, screenHeight, 0.43, 0.445, 'H41', hallwayColor, route.contains('H41')),
     ];
-    return hallPositions.map((hall) => buildHall(screenWidth, screenHeight, hall['topPercent'], hall['leftPercent'], hall['label'], hallwayColor, route.contains(hall['label']))).toList();
   }
 
-  Widget buildPolyline(double screenWidth, double screenHeight, List<dynamic> route) {
-    List<Map<String, dynamic>> hallPositions = [
-      {'label': 'H1', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.05)},
-      {'label': 'H2', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.1)},
-      {'label': 'H3', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.12)},
-      {'label': 'H4', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.14)},
-      {'label': 'H5', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.17)},
-      {'label': 'H6', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.19)},
-      {'label': 'H7', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.21)},
-      {'label': 'H8', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.25)},
-      {'label': 'H9', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.28)},
-      {'label': 'H10', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.30)},
-      {'label': 'H11', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.33)},
-      {'label': 'H12', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.36)},
-      {'label': 'H13', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.37)},
-      {'label': 'H14', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.37)},
-      {'label': 'H15', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.4093)},
-      {'label': 'H16', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.4093)},
-      {'label': 'H17', 'offset': Offset(screenWidth * 0.63, screenHeight * 0.4093)},
-      {'label': 'H18', 'offset': Offset(screenWidth * 0.66, screenHeight * 0.4093)},
-      {'label': 'H19', 'offset': Offset(screenWidth * 0.66, screenHeight * 0.4099)},
-      {'label': 'H20', 'offset': Offset(screenWidth * 0.66, screenHeight * 0.545)},
-      {'label': 'H21', 'offset': Offset(screenWidth * 0.62, screenHeight * 0.545)},
-      {'label': 'H22', 'offset': Offset(screenWidth * 0.60, screenHeight * 0.545)},
-      {'label': 'H23', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.545)},
-      {'label': 'H24', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.53)},
-      {'label': 'H25', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.535)},
-      {'label': 'H26', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.61)},
-      {'label': 'H27', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.625)},
-      {'label': 'H28', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.67)},
-      {'label': 'H29', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.69)},
-      {'label': 'H30', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.70)},
-      {'label': 'H31', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.71)},
-      {'label': 'H32', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.75)},
-      {'label': 'H33', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.82)},
-      {'label': 'H34', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.835)},
-      {'label': 'H35', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.87)},
-      {'label': 'H36', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.88)},
-      {'label': 'H37', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.93)},
-      {'label': 'H38', 'offset': Offset(screenWidth * 0.53, screenHeight * 0.95)},
-      {'label': 'H39', 'offset': Offset(screenWidth * 0.4092, screenHeight * 0.545)},
-      {'label': 'H40', 'offset': Offset(screenWidth * 0.4092, screenHeight * 0.4099)},
-      {'label': 'H41', 'offset': Offset(screenWidth * 0.4092, screenHeight * 0.4093)},
-    ];
-
-    List<Offset> points = route.map((node) {
-      final hall = hallPositions.firstWhere((hall) => hall['label'] == node, orElse: () => {'offset': Offset.zero});
-      return hall['offset'] as Offset;
-    }).where((offset) => offset != Offset.zero).toList();
-
+  Widget buildPolyline(double screenWidth, double screenHeight, List<dynamic> route, List<Positioned> hallways) {
+    List<Offset> points = [];
+    for(String node in route){
+      Positioned? p = hallways.where((element) => element.key == Key(node)).take(1).cast<Positioned>().singleOrNull;
+      if(p != null){
+        points.add(Offset(p.left!, p.top!));
+      }
+    }
     return CustomPaint(
       painter: PolylinePainter(points),
+      child: Stack(
+        children: [Positioned(
+          top: points[0].dy - 2,
+          left: points[0].dx - 6,
+          child: Icon(
+            Icons.circle_rounded,
+            color: Colors.blue,
+            size: 12,
+          ),
+        ),
+        Positioned(
+          top: points[points.length-1].dy - 2,
+          left: points[points.length-1].dx - 6,
+          child: Icon(
+            Icons.circle_rounded,
+            color: Colors.blue,
+            size: 12,
+          ),),
+      ]),
     );
   }
 
@@ -292,13 +267,7 @@ class MapPageState extends State<MapPage> {
       top: screenHeight * topPercent,
       left: screenWidth * leftPercent,
       key: Key(label),
-      child: visible
-          ? Icon(
-              Icons.circle_rounded,
-              color: color,
-              size: widget.textSize / 3,
-            )
-          : const SizedBox.shrink(),
+      child: SizedBox.shrink(),
     );
   }
 }
