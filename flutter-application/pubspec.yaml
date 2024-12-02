@@ -99,6 +99,7 @@ flutter:
       - assets/images/mock_app.png
       - assets/images/mock_app.svg
       - assets/images/mock_app_no_bg.svg
+      - assets/images/mock_app_no_bg_dark_mode.svg
       - assets/maps/atrium_f1.json
 
 
