@@ -40,9 +40,8 @@ class MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     final pinColor = Colors.blue;
     final hallwayColor = Colors.amber;
-
     List<dynamic> route = [];
-    if (currloca.text.isNotEmpty && dest.text.isNotEmpty) {
+    if (currentLocation!.isNotEmpty && destination!.isNotEmpty) {
       Graph graph = Graph();
       graph.loadFromJson('assets/maps/atrium_f1.json', context);
       route = graph.route(currloca.text, dest.text);

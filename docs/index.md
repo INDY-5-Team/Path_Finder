@@ -7,7 +7,6 @@ Welcome to the **Path Finder**, a Flutter mobile application that allows users t
 {% include image.html %}
 
 ***Kennesaw State University CS 4850 Fall 2024***
-
 **[Our Repository](https://github.com/INDY-5-Team/Map_Navigation_Application/)**
 
 ## Features
