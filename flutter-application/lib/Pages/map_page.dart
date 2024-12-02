@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_navigation_app/Utilities/map.dart';
+import 'package:my_navigation_app/Utilities/qrscan.dart';
 
 class MapPage extends StatefulWidget {
   final double textSize;
   final String? currentLocation;
   final String? destination;
+  final bool darkMode;
   const MapPage(
       {super.key,
       required this.textSize,
       this.currentLocation,
-      this.destination});
+      this.destination,
+      required this.darkMode});
 
   @override
   State<MapPage> createState() => MapPageState();
@@ -52,6 +55,8 @@ class MapPageState extends State<MapPage> {
     'J-134'
   ];
 
+  get darkMode => widget.darkMode;
+
   @override
   void initState() {
     super.initState();
@@ -64,10 +69,15 @@ class MapPageState extends State<MapPage> {
   }
 
   void update(String newLocation, String newDestination) {
+    FocusScope.of(context).unfocus();
     setState(() {
       currentLocation = newLocation;
       destination = newDestination;
     });
+  }
+
+  void setresult(String result) {
+    currloca.text = result;
   }
 
   @override
@@ -93,6 +103,14 @@ class MapPageState extends State<MapPage> {
               decoration: InputDecoration(
                 labelText: currentLocation ?? 'Current Location',
                 border: OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            QrCodeScanner(setresult: setresult)),
+                  ),
+                  icon: Icon(Icons.qr_code),
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -172,7 +190,9 @@ class MapPageState extends State<MapPage> {
                             width: screenWidth * 2,
                             height: screenHeight * 2,
                             child: SvgPicture.asset(
-                              'assets/images/mock_app_no_bg.svg',
+                              darkMode
+                                  ? 'assets/images/mock_app_no_bg_dark_mode.svg'
+                                  : 'assets/images/mock_app_no_bg.svg',
                               fit: BoxFit.contain,
                             ),
                           ),

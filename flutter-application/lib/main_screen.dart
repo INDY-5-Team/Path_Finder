@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 //
 
 import 'Pages/about_us_page.dart';
-import 'Pages/destination_page.dart';
 import 'Pages/map_page.dart';
 import 'Pages/settings_page.dart';
 
@@ -34,8 +33,10 @@ class _MainScreenState extends State<MainScreen> {
     if (oldWidget.textSize != widget.textSize) {
       setState(() {
         _screens = [
-          MapPage(textSize: widget.textSize),
-          DestinationPage(textSize: widget.textSize),
+          MapPage(
+            textSize: widget.textSize,
+            darkMode: widget.isDarkMode,
+          ),
           AboutUsPage(textSize: widget.textSize),
         ];
       });
@@ -46,8 +47,10 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _screens = [
-      MapPage(textSize: widget.textSize),
-      DestinationPage(textSize: widget.textSize),
+      MapPage(
+        textSize: widget.textSize,
+        darkMode: widget.isDarkMode,
+      ),
       AboutUsPage(textSize: widget.textSize),
     ];
   }
@@ -64,7 +67,11 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          _selectedIndex == 0 ? 'MAP' : _selectedIndex == 1 ? 'DESTINATIONS' : 'ABOUT US',
+          _selectedIndex == 0
+              ? 'MAP'
+              : _selectedIndex == 1
+                  ? 'DESTINATIONS'
+                  : 'ABOUT US',
           style: const TextStyle(
             fontFamily: 'Sans-serif',
             fontWeight: FontWeight.bold,
@@ -80,10 +87,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
             label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop),
-            label: 'Destinations',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info, size: 20.0),
@@ -102,7 +105,8 @@ class _MainScreenState extends State<MainScreen> {
               decoration: const BoxDecoration(
                 color: Colors.blue,
               ),
-              child: SizedBox( // Fill the entire header with blue
+              child: SizedBox(
+                // Fill the entire header with blue
                 width: double.infinity,
                 child: Text(
                   'Menu',
@@ -116,20 +120,10 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.pin_drop, color: Colors.blue),
-              title: const Text('Destinations',
-                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
-              onTap: () {
-                Navigator.pop(context);
-                setState(() {
-                  _selectedIndex = 1;
-                });
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.map, color: Colors.blue),
               title: const Text('Map',
-                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
+                  style:
+                      TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
               onTap: () {
                 Navigator.pop(context);
                 setState(() {
@@ -140,7 +134,8 @@ class _MainScreenState extends State<MainScreen> {
             ListTile(
               leading: const Icon(Icons.info, color: Colors.blue),
               title: const Text('About Us',
-                  style: TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
+                  style:
+                      TextStyle(fontFamily: 'Sans-serif', color: Colors.blue)),
               onTap: () {
                 Navigator.pop(context);
                 setState(() {
