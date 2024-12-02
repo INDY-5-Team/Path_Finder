@@ -1,10 +1,12 @@
-# Map Traversal App
+# Path Finder
 
 Welcome to the **Path Finder**, a Flutter mobile application that allows users to traverse a map through predefined nodes. This app focuses on **point-to-point traversal** with interactive QR code checkpoints for an engaging map exploration experience.
 
 {% include youtube.html id="d8XeIaBQJtI" %}
 
-Group memebers: [Harrison Varnadoe](https://github.com/hvarnadoe), [Zachary Wilson](https://github.com/ThatOneZach), [Lucas Haas](https://github.com/Lucas-Haas-02), and [Eddie Payan](https://github.com/Eddie-Pyn)
+{% include image.html %}
+
+***Kennesaw State University CS 4850 Fall 2024***
 
 **[Our Repository](https://github.com/INDY-5-Team/Map_Navigation_Application/)**
 
@@ -28,12 +30,8 @@ Group memebers: [Harrison Varnadoe](https://github.com/hvarnadoe), [Zachary Wils
 
 ## QR Code Checkpoints
 
--QR code checkpoints are used for path finder when lost or need direction
--On same lengths as mall maps
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+-QR code checkpoints are used for path finder when the user is unsure of their current location
+-QR codes can be placed around the building in key areas and allow users to orient themselves on the map
 
 ## Contact
 
