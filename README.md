@@ -1,4 +1,4 @@
-# Map Traversal App
+# Path Finder
 
 Welcome to the **Path Finder**, a Flutter mobile application that allows users to traverse a map through predefined nodes. This app focuses on **point-to-point traversal** with interactive QR code checkpoints for an engaging map exploration experience.
 
