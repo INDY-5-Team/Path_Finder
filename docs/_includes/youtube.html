@@ -20,4 +20,32 @@
   width: 100%;
   height: 100%;
 }
+.container {
+        display: flex;
+        justify-content: center;  /* Center-align the row */
+        gap: 20px;                /* Space between images */
+        flex-wrap: wrap;          /* Wrap on smaller screens */
+    }
+    .item {
+        text-align: center;       /* Center the caption */
+    }
+    .item img {
+        width: 150px;             /* Set desired image width */
+        height: 150px;            /* Set desired image height */
+        object-fit: cover;        /* Ensure images fill the space without distortion */
+        border-radius: 8px;       /* Optional: rounded corners */
+    }
+    .item a {
+        display: block;
+        margin-top: 8px;          /* Space between image and caption */
+        text-decoration: none;    /* Remove underline from links */
+        color: #333;              /* Set caption text color */
+        font-weight: bold;        /* Optional: bold text */
+    }
+    .title {
+        text-align: center;
+        padding: 20px;
+        font-size: larger;
+        font-weight: bolder;
+    }
 </style>
