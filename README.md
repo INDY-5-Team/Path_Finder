@@ -31,7 +31,7 @@ Follow these steps to set up the project and run the app on a Flutter-supported 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/node-traversal-app.git
+   git clone https://github.com/your-username/Map_Navigation_App.git
    cd node-traversal-app
    ```
 
