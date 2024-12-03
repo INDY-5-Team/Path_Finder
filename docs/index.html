@@ -1,0 +1,143 @@
+<body>
+    <div class = "topofpage">Path Finder</div>
+    <p style="text-align: center; font-size: medium; color: black; padding: none;">A flutter application created for CS 4850 Kennesaw State University Fall 2024</p>
+    <div class="container">
+        <div class=link>
+            <a href="https://github.com/INDY-5-Team/Map_Navigation_Application/">Our Repository</a>
+        </div>
+        <div class=link>
+            <a href="https://github.com/INDY-5-Team/Map_Navigation_Application/blob/master/docs/images/INDY-5-BuildingMap-FinalReport.pdf">Final Report</a> 
+        </div>
+    </div>
+    <div class="embed-container">
+        <iframe
+        src="https://www.youtube.com/embed/d8XeIaBQJtI" 
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class = "title">Group Members</div>
+    <div class="container">
+        <div class="item">
+            <img src="https://github.com/INDY-5-Team/Map_Navigation_Application/blob/master/docs/images/hv.png?raw=true" alt="Unable to Load Image">
+            <a href="https://github.com/hvarnadoe" style="text-decoration: underline;">Harrison Varnadoe</a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/INDY-5-Team/Map_Navigation_Application/blob/master/docs/images/lh.png?raw=true" alt="Unable to Load Image">
+            <a href="https://github.com/Lucas-Haas-02" style="text-decoration: underline;">Lucas Haas</a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/INDY-5-Team/Map_Navigation_Application/blob/master/docs/images/ep.png?raw=true" alt="Unable to Load Image">
+            <a href="https://github.com/Eddie-Pyn" style="text-decoration: underline;">Eddie Payan</a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/INDY-5-Team/Map_Navigation_Application/blob/master/docs/images/zw.png?raw=true" alt="Unable to Load Image">
+            <a href="https://github.com/ThatOneZach" style="text-decoration: underline;">Zach Wilson</a>
+        </div>
+    </div>
+    <div class = "title">Features
+        <div class="body-text">
+            - Node-based Map Traversal: Users can traverse the map using predefined nodes and paths. Each node represents a significant point or location on the map.<br>
+            - Point-to-Point Navigation: Users can select a starting node and an end node to traverse the shortest or specified path between them.<br>
+            - QR Code Checkpoints: At each node, users will scan a QR code to confirm their location and proceed to the next checkpoint.<br>
+            - Dynamic Path Visualization: The path between nodes is dynamically generated, providing visual guidance to the next destination.<br>
+            - Simple, Intuitive Interface: Easy-to-use interface that guides users from one node to the next with real-time feedback on their progress.<br>
+        </div>
+    </div>    
+    <div class = "title">Usage
+        <div class="body-text">
+            1. Open the app on your device or emulator.<br>
+            2. Follow menu to map directory<br>
+            3. Select a starting node and destination node from the list or map.<br>
+            4. Follow the generated path between nodes.<br>
+            5. When you reach a node, scan the QR code checkpoint to verify your location.<br>
+            6. Continue traversing the nodes until you reach your final destination.<br>
+            7. The app will guide you along the way with real-time updates and visual aids.<br>
+        </div>
+    </div>
+    <div class = "title">QR Code Checkpoints
+        <div class="body-text">
+            -QR code checkpoints are used for path finder when the user is unsure of their current location<br>
+            -QR codes can be placed around the building in key areas and allow users to orient themselves on the map<br>
+        </div>
+    </div>
+    <div class = "title">Contact
+        <div class="body-text">
+            If you have any questions, feel free to reach out:<br><br>
+            - Email: lucashaasprogramming02@gmail.com<br>
+            - Email: harrison.varnadoe@outlook.com<br>
+        </div>
+    </div>
+</body>
+
+<style>
+    body{
+        background-color: #ecede7;
+        color: #2196F3;
+    }
+    .link{
+        text-align: center;
+        font-size: 25px;
+    }
+    .body-text {
+        font-size: medium;
+        display: block;
+        margin: 8px auto;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        text-align: left;
+        max-width: 800px;
+        word-wrap: break-word;
+        line-height: 1.5;
+    }
+    .topofpage{
+        text-align: center;
+        padding: 20px;
+        font-size: 80px;
+        font-weight: bolder;
+    }
+    .embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        scale: 75%;
+    }
+    .embed-container iframe,
+    .embed-container object,
+    .embed-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .item {
+        text-align: center;
+    }
+    .item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .item a {
+        display: block;
+        margin-top: 8px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+    .title {
+        text-align: center;
+        padding: 20px;
+        font-size: larger;
+        font-weight: bolder;
+    }
+</style>
